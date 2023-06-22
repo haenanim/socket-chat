@@ -11,10 +11,9 @@ app.use(express.static(path.join(__dirname, 'src')));
 const PORT = process.env.PORT || 5000;
 
 io.on('connection', (socket) => {
-  // console.log('연결완료');
   socket.on('chatting', (data) => {
     console.log(data);
-    io.emit('chatting', `그래반가워 ${data}`);
+    io.emit('chatting', data);
   });
 });
 
