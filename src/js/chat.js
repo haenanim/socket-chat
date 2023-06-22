@@ -15,6 +15,9 @@ sendButton.addEventListener('click', () => {
 });
 
 socket.on('chatting', (data) => {
+  const li = document.createElement('li');
+  li.innerText = `${data.name}님이 - ${data.msg}`;
+  chatList.appendChild(li);
   console.log(data);
 });
 
