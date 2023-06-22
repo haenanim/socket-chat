@@ -4,6 +4,7 @@ const app = express();
 const path = require('path');
 const server = http.createServer(app);
 const socketIO = require('socket.io');
+const moment = require('moment');
 
 const io = socketIO(server);
 
@@ -12,8 +13,13 @@ const PORT = process.env.PORT || 5000;
 
 io.on('connection', (socket) => {
   socket.on('chatting', (data) => {
+    const { name, msg } = data;
     console.log(data);
-    io.emit('chatting', data);
+    io.emit('chatting', {
+      name: name,
+      msg: msg,
+      time: moment(new Date()).format('h:ss A'),
+    });
   });
 });
 

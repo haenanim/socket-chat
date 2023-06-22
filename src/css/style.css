@@ -65,7 +65,7 @@ body {
   border-radius: 3px;
 }
 
-.chatting_list li {
+.chatting-list li {
   width: 90%;
   padding: 0.3rem;
   display: flex;
@@ -103,6 +103,7 @@ body {
 }
 .sent {
   flex-direction: row-reverse;
+  float: right;
 }
 .sent .message {
   background-color: #ffeb33;
